@@ -34,4 +34,9 @@ public class UserServiceImpl implements UserService {
             return false;
         }
     }
+
+    @Override
+    public User login(User u) {
+        return userDao.findByUsernameAndPassword(u.getUsername(),u.getPassword());
+    }
 }
