@@ -1,4 +1,4 @@
-package cn.itcast.travel.web.servlet;
+package cn.itcast.travel.web.servlet.del;
 
 import cn.itcast.travel.service.UserService;
 import cn.itcast.travel.service.impl.UserServiceImpl;
