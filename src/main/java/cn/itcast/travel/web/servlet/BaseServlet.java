@@ -1,5 +1,8 @@
 package cn.itcast.travel.web.servlet;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,17 +16,26 @@ public class BaseServlet extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String uri = req.getRequestURI();
         String methodName = uri.substring(uri.lastIndexOf("/") + 1);
-        if ("login".equals(methodName)) {
-            try {
-                Method method = this.getClass().getMethod(methodName, HttpServletRequest.class, HttpServletResponse.class);
-                method.invoke(this, req, resp);
-            } catch (NoSuchMethodException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
-            }
+        try {
+            Method method = this.getClass().getMethod(methodName, HttpServletRequest.class, HttpServletResponse.class);
+            method.invoke(this, req, resp);
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
         }
+    }
+
+    public void writeValue(Object obj, HttpServletResponse response) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        response.setContentType("application/json; charset=UTF-8");
+        mapper.writeValue(response.getOutputStream(), obj);
+    }
+
+    public String writeValueAsString(Object obj) throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.writeValueAsString(obj);
     }
 }
