@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/search.css">
     <script src="js/jquery-3.3.1.js"></script>
     <script>
+        //分页展示
         $(function () {
             var serach = location.search;//返回当前URL的查询部分（问号?之后的部分）。
             var cid = serach.split("=")[1];
@@ -17,10 +18,11 @@
         });
 
         function load(cid, currentPage) {
-            $.post("route/pageQuery", {cid: cid, currentPage: currentPage}, function (pb) {
+            $.get("route/pageQuery", {cid: cid, currentPage: currentPage}, function (pb) {
+                //共几页几条数据
                 $("#totalPage").html(pb.totalPage);
                 $("#totalCount").html(pb.totalCount);
-
+                //分页按钮
                 var lis = "";
                 var fristPage = '<li onclick="javascript:load(' + cid + ',' + 1 + ')" class="threeword"><a href="javascript:void(0)">首页</a></li>';
                 var beforNum = pb.currentPage - 1;
@@ -30,7 +32,25 @@
                 var beforePage = '<li onclick="javascript:load(' + cid + ',' + beforNum + ')" class="threeword"><a href="javascript:void(0)">上一页</a></li>';
                 lis += fristPage;
                 lis += beforePage;
-                for (var i = 1; i <= pb.totalPage; i++) {
+                //展示10个页码按钮，达到前5后4的效果
+                var begin;
+                var end;
+                if (pb.totalPage < 10) {
+                    begin = 1;
+                    end = pb.totalPage;
+                } else {
+                    begin = pb.currentPage - 5;
+                    end = pb.currentPage + 4;
+                    if (begin < 1) {
+                        begin = 1;
+                        end = begin + 9;
+                    }
+                    if (end > pb.totalPage) {
+                        end = pb.totalPage;
+                        begin = end - 9;
+                    }
+                }
+                for (var i = begin; i <= end; i++) {
                     if (pb.currentPage == i) {
                         var li = '<li class="curPage" onclick="javascript:load(' + cid + ',' + i + ')"><a href="javascript:void(0)">' + i + '</a></li>';
                     } else {
@@ -48,7 +68,7 @@
                 lis += nextPage;
                 lis += lastPage;
                 $("#pageNum").html(lis);
-
+                //分页内容
                 var route_lis = "";
                 for (var i = 0; i < pb.list.length; i++) {
                     var route = pb.list[i];
