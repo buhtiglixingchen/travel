@@ -18,6 +18,7 @@ public class RouteServlet extends BaseServlet {
 
     /**
      * 分页查询
+     *
      * @param request
      * @param response
      * @throws ServletException
@@ -27,23 +28,25 @@ public class RouteServlet extends BaseServlet {
         String currentPageStr = request.getParameter("currentPage");
         String pageSizeStr = request.getParameter("pageSize");
         String cidStr = request.getParameter("cid");//导航栏类别id
+        String rname = request.getParameter("rname");
+        rname = new String(rname.getBytes("iso-8859-1"), "utf-8");//解决tomcat7浏览器地址栏乱码
         int cid = 0;
-        if(cidStr != null && cidStr.length() > 0){
+        if (null != cidStr && cidStr.length() > 0 && !"null".equals(cidStr)) {
             cid = Integer.parseInt(cidStr);
         }
         int currentPage = 0;//当前页码，如果不传递，则默认为第一页
-        if(currentPageStr != null && currentPageStr.length() > 0){
+        if (currentPageStr != null && currentPageStr.length() > 0) {
             currentPage = Integer.parseInt(currentPageStr);
-        }else{
+        } else {
             currentPage = 1;
         }
         int pageSize = 0;//每页显示条数，如果不传递，默认每页显示5条记录
-        if(pageSizeStr != null && pageSizeStr.length() > 0){
+        if (pageSizeStr != null && pageSizeStr.length() > 0) {
             pageSize = Integer.parseInt(pageSizeStr);
-        }else{
+        } else {
             pageSize = 5;
         }
-        PageBean<Route> pb = routeService.pageQuery(cid, currentPage, pageSize);
-        writeValue(pb,response);
+        PageBean<Route> pb = routeService.pageQuery(cid, currentPage, pageSize, rname);
+        writeValue(pb, response);
     }
 }

@@ -12,12 +12,12 @@ public class RouteServiceImpl implements RouteService {
     private RouteDao routeDao = new RouteDaoImpl();
 
     @Override
-    public PageBean<Route> pageQuery(int cid, int currentPage, int pageSize) {
-        int totalCount = routeDao.findTotalCount(cid);
-        int totalPage = totalCount % pageSize == 0 ? totalCount / pageSize : totalCount / pageSize + 1;
+    public PageBean<Route> pageQuery(int cid, int currentPage, int pageSize, String rname) {
+        int totalCount = routeDao.findTotalCount(cid, rname);//dao总记录数
+        int totalPage = totalCount % pageSize == 0 ? totalCount / pageSize : totalCount / pageSize + 1;//总页数
 
-        int start = (currentPage - 1) * pageSize;
-        List<Route> list = routeDao.findByPage(cid, start, pageSize);
+        int start = (currentPage - 1) * pageSize;//limit查询偏移量
+        List<Route> list = routeDao.findByPage(cid, start, pageSize, rname);//dao每页数据集合
 
         PageBean pb = new PageBean(totalCount, totalPage, currentPage, pageSize, list);
         return pb;

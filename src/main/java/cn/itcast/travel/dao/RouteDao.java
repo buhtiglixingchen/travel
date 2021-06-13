@@ -5,7 +5,7 @@ import cn.itcast.travel.domain.Route;
 import java.util.List;
 
 public interface RouteDao {
-    int findTotalCount(int cid);
+    int findTotalCount(int cid, String rname);
 
-    List<Route> findByPage(int cid, int start, int pageSize);
+    List<Route> findByPage(int cid, int start, int pageSize, String rname);
 }
