@@ -49,4 +49,10 @@ public class RouteServlet extends BaseServlet {
         PageBean<Route> pb = routeService.pageQuery(cid, currentPage, pageSize, rname);
         writeValue(pb, response);
     }
+
+    public void findOne(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String rid = request.getParameter("rid");
+        Route route = routeService.finOne(rid);
+        writeValue(route,response);
+    }
 }

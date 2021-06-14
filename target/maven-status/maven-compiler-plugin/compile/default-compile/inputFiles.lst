@@ -3,6 +3,7 @@ C:\Users\lxc\Desktop\travel\src\main\java\cn\itcast\travel\domain\PageBean.java
 C:\Users\lxc\Desktop\travel\src\main\java\cn\itcast\travel\dao\impl\RouteDaoImpl.java
 C:\Users\lxc\Desktop\travel\src\main\java\cn\itcast\travel\domain\Category.java
 C:\Users\lxc\Desktop\travel\src\main\java\cn\itcast\travel\util\UuidUtil.java
+C:\Users\lxc\Desktop\travel\src\main\java\cn\itcast\travel\dao\impl\SellerDaoImpl.java
 C:\Users\lxc\Desktop\travel\src\main\java\cn\itcast\travel\domain\Route.java
 C:\Users\lxc\Desktop\travel\src\main\java\cn\itcast\travel\service\CategoryService.java
 C:\Users\lxc\Desktop\travel\src\main\java\cn\itcast\travel\web\servlet\del\LoginServlet.java
@@ -12,11 +13,13 @@ C:\Users\lxc\Desktop\travel\src\main\java\cn\itcast\travel\web\servlet\del\ExitS
 C:\Users\lxc\Desktop\travel\src\main\java\cn\itcast\travel\web\servlet\UserServlet.java
 C:\Users\lxc\Desktop\travel\src\main\java\cn\itcast\travel\web\servlet\del\ActiveUserServlet.java
 C:\Users\lxc\Desktop\travel\src\main\java\cn\itcast\travel\dao\CategoryDao.java
+C:\Users\lxc\Desktop\travel\src\main\java\cn\itcast\travel\dao\impl\RouteImgDaoImpl.java
 C:\Users\lxc\Desktop\travel\src\main\java\cn\itcast\travel\service\UserService.java
 C:\Users\lxc\Desktop\travel\src\main\java\cn\itcast\travel\util\MailUtils.java
 C:\Users\lxc\Desktop\travel\src\main\java\cn\itcast\travel\util\JedisUtil.java
 C:\Users\lxc\Desktop\travel\src\main\java\cn\itcast\travel\util\Md5Util.java
 C:\Users\lxc\Desktop\travel\src\main\java\cn\itcast\travel\web\servlet\CheckCodeServlet.java
+C:\Users\lxc\Desktop\travel\src\main\java\cn\itcast\travel\dao\SellerDao.java
 C:\Users\lxc\Desktop\travel\src\main\java\cn\itcast\travel\domain\User.java
 C:\Users\lxc\Desktop\travel\src\main\java\cn\itcast\travel\service\impl\UserServiceImpl.java
 C:\Users\lxc\Desktop\travel\src\main\java\cn\itcast\travel\dao\impl\UserDaoImpl.java
@@ -25,6 +28,7 @@ C:\Users\lxc\Desktop\travel\src\main\java\cn\itcast\travel\web\servlet\del\FindU
 C:\Users\lxc\Desktop\travel\src\main\java\cn\itcast\travel\web\servlet\RouteServlet.java
 C:\Users\lxc\Desktop\travel\src\main\java\cn\itcast\travel\util\JDBCUtils.java
 C:\Users\lxc\Desktop\travel\src\main\java\cn\itcast\travel\web\servlet\del\RegistUserServlet.java
+C:\Users\lxc\Desktop\travel\src\main\java\cn\itcast\travel\dao\RouteImgDao.java
 C:\Users\lxc\Desktop\travel\src\main\java\cn\itcast\travel\domain\RouteImg.java
 C:\Users\lxc\Desktop\travel\src\main\java\cn\itcast\travel\service\impl\RouteServiceImpl.java
 C:\Users\lxc\Desktop\travel\src\main\java\cn\itcast\travel\service\impl\CategoryServiceImpl.java
